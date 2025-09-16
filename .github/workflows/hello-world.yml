@@ -1,5 +1,7 @@
 name: Hello World
 
+run-name: ${{ github.actor }} triggered this workflow
+
 on:
     workflow_dispatch:
 
@@ -8,4 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Print Hello World
-              run: echo "Hello, World!"
+              run: |
+                echo "Hello, World!"
+                echo "Triggered by: ${{ github.actor }}"
+                echo "Repository: ${{ github.repository }}"
+                echo "Reference: ${{ github.ref }}"
